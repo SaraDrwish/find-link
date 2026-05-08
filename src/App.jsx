@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import SallaThemes from './pages/SallaThemes';
 import ZidThemes from './pages/ZidThemes';
-import ThemeDetails from './pages/ThemeDetails';
 import Dashboard from './pages/Admin/Dashboard';
 import ManageThemes from './pages/Admin/ManageThemes';
 import ManageCategories from './pages/Admin/ManageCategories';
@@ -21,7 +20,6 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/salla/themes" element={<SallaThemes />} />
             <Route path="/zid/themes" element={<ZidThemes />} />
-            <Route path="/theme/:platform/:themeId" element={<ThemeDetails />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/themes" element={<ManageThemes />} />
             <Route path="/admin/categories" element={<ManageCategories />} />

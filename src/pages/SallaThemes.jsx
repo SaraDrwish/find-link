@@ -17,7 +17,7 @@ export default function SallaThemes() {
             ثيمات منصة سلة
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            اختر الثيم المناسب لمتجرك على منصة سلة
+            اضغط على أي ثيم لعرض جميع روابطه
           </p>
         </motion.div>
 
