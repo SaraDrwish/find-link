@@ -7,17 +7,21 @@ body {
   background-color: #ffffff;
   margin: 0;
   padding: 0;
+  color: #150543 !important;
 }
 
-/* الألوان الأساسية */
 :root {
   --dark-navy: #150543;
   --purple: #a46df6;
+  --purplelight: #ccb1f4;
   --mauve: #9b92b3;
   --light-mauve: #e0ccfe;
 }
 
-/* تأثير نيون ناعم للأزرار */
+nav{
+  background: #DFDBE6 !important;
+}
+
 .btn-glow {
   transition: all 0.25s ease;
 }
@@ -26,10 +30,9 @@ body {
   transform: scale(1.02);
 }
 
-/* بطاقات hover */
 .card-hover {
   transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  border: 1px solid #eef2f6;
+  border: 1px solid var(--dark-navy);
 }
 .card-hover:hover {
   transform: translateY(-5px);
@@ -37,16 +40,14 @@ body {
   box-shadow: 0 12px 20px -10px rgba(21, 5, 67, 0.1);
 }
 
-/* أنيميشن خفيف للروابط */
 .link-pulse {
   transition: all 0.2s;
 }
 .link-pulse:hover {
   padding-right: 4px;
-  color: var(--purple);
+  color: var(--purplelight);
 }
 
-/* دوائر وأشكال الفوتر */
 .footer-shape {
   position: absolute;
   border-radius: 50%;
@@ -62,8 +63,8 @@ body {
 
 /* تحديد النص */
 ::selection {
-  background-color: var(--purple);
-  color: white;
+  background-color: var(--purplelight);
+  color: #150543;
 }
 
 /* شريط التمرير */
@@ -71,7 +72,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #150543;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--purple);
@@ -81,7 +82,7 @@ body {
 .footer-shape {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(164,109,246,0.08), transparent);
+  background: radial-gradient(circle, rgb(58 31 98 / 67%), transparent);
   pointer-events: none;
   z-index: 0;
   animation: floatSlow 12s infinite alternate;
@@ -89,4 +90,20 @@ body {
 @keyframes floatSlow {
   0% { transform: translate(0,0) scale(1); }
   100% { transform: translate(20px,-15px) scale(1.05); }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+}
+.btn-glow:active {
+  animation: gentlePulse 0.3s ease;
+}
+
+@keyframes slowBlob {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(2%,2%) scale(1.02); }
+}
+.blob-bg {
+  animation: slowBlob 30s infinite alternate;
 }
