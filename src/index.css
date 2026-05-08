@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* خلفية بيضاء ثابتة */
+body {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* الألوان الأساسية */
+:root {
+  --dark-navy: #150543;
+  --purple: #a46df6;
+  --mauve: #9b92b3;
+  --light-mauve: #e0ccfe;
+}
+
+/* تأثير نيون ناعم للأزرار */
+.btn-glow {
+  transition: all 0.25s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 12px rgba(164, 109, 246, 0.4);
+  transform: scale(1.02);
+}
+
+/* بطاقات hover */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid #eef2f6;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple);
+  box-shadow: 0 12px 20px -10px rgba(21, 5, 67, 0.1);
+}
+
+/* أنيميشن خفيف للروابط */
+.link-pulse {
+  transition: all 0.2s;
+}
+.link-pulse:hover {
+  padding-right: 4px;
+  color: var(--purple);
+}
+
+/* دوائر وأشكال الفوتر */
+.footer-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(164,109,246,0.08), transparent);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatSlow 12s infinite alternate;
+}
+@keyframes floatSlow {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(20px, -15px) scale(1.05); }
+}
+
+/* تحديد النص */
+::selection {
+  background-color: var(--purple);
+  color: white;
+}
+
+/* شريط التمرير */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 8px;
+}
+
+.footer-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(164,109,246,0.08), transparent);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatSlow 12s infinite alternate;
+}
+@keyframes floatSlow {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(20px,-15px) scale(1.05); }
+}
