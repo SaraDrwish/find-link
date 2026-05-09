@@ -124,8 +124,14 @@ export default function AdminPanel() {
   return (
     <div className="bg-white min-h-screen py-12">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h1 className="text-4xl font-bold text-center text-[#150543] mb-8">🔧 لوحة تحكم ثيمات كرافو</h1>
 
+        <h1 className="text-4xl font-bold text-center text-[#150543] mb-8">🔧 لوحة تحكم ثيمات كرافو</h1>
+         <button
+          onClick={() => navigate(-1)}
+          className="absolute top-4 left-4 flex items-center gap-1 text-[#150543] hover:text-[#a46df6] transition mb-4"
+        >
+          <span>←</span> رجوع
+        </button>
         {errorMsg && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl text-center mb-6">
             {errorMsg}

@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAdmin } from '../contexts/AdminContext';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function ThemeDetails() {
   const { themeId } = useParams();
+  const navigate = useNavigate();
   const { themes, getCategoriesForTheme, getLinksForTheme, getLinksForCategory } = useAdmin();
   const theme = themes.find(t => t.id === themeId);
   const categories = getCategoriesForTheme(themeId);
@@ -21,32 +22,42 @@ export default function ThemeDetails() {
   if (!theme) return <div className="text-center py-20">لم يتم العثور على الثيم</div>;
 
   const uncategorized = themeLinks.filter(l => !l.categoryId);
-  const categorized = themeLinks.filter(l => l.categoryId);
-
   return (
-    <div className="bg-white min-h-screen py-12">
+    
+          <div className="bg-white min-h-screen py-12">
+            {/* <button 
+              onClick={() => window.history.back()} 
+              className="absolute top-24 right-4 md:top-28 md:right-8 bg-gray-100 hover:bg-[#a46df6] text-[#150543] hover:text-white p-2 rounded-full transition shadow-md z-10"
+              title="رجوع"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+           </button> */}
       <div className="container mx-auto px-4 max-w-7xl">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 flex items-center gap-1 text-[#150543] hover:text-[#a46df6] transition"
+        >
+          <span>←</span> رجوع
+        </button>
         <div className="text-center mb-10">
           <h1 className="text-5xl font-bold text-[#150543] mb-3">{theme.name}</h1>
-          <div className="flex justify-center gap-4 mt-2">
+          <div className="flex justify-center gap-4 mt-2 flex-wrap">
             {theme.buyLink && (
-              <a href={theme.buyLink} target="_blank" rel="noopener noreferrer" 
-                 className="inline-flex items-center gap-2 bg-[#a46df6] text-white px-5 py-2 rounded-full hover:bg-[#150543] transition">
+              <a href={theme.buyLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#a46df6] text-white px-5 py-2 rounded-full hover:bg-[#150543] transition">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6M17 13l1.5 6M9 21h6M6 21h.01M18 21h.01" /></svg>
                 شراء الثيم
               </a>
             )}
             {theme.demoLink && (
-              <a href={theme.demoLink} target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 bg-gray-200 text-[#150543] px-5 py-2 rounded-full hover:bg-[#a46df6] hover:text-white transition">
+              <a href={theme.demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gray-200 text-[#150543] px-5 py-2 rounded-full hover:bg-[#a46df6] hover:text-white transition">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 معاينة الثيم
               </a>
             )}
             {themeLinks.length > 0 && (
-              <button onClick={() => copyAll(themeLinks, 'كل الروابط')} className="bg-[#a46df6]/20 text-[#150543] px-5 py-2 rounded-full">
-                📋 نسخ كل الروابط
-              </button>
+              <button onClick={() => copyAll(themeLinks, 'كل روابط الثيم')} className="bg-[#a46df6]/20 text-[#150543] px-5 py-2 rounded-full">📋 نسخ الكل</button>
             )}
           </div>
         </div>
