@@ -6,29 +6,23 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import SallaThemes from './pages/SallaThemes';
 import ZidThemes from './pages/ZidThemes';
+import ThemeDetails from './pages/ThemeDetails';
 import Login from './pages/Login';
-import Dashboard from './pages/Admin/Dashboard';
-import ManageThemes from './pages/Admin/ManageThemes';
-import ManageCategories from './pages/Admin/ManageCategories';
-import ManageLinks from './pages/Admin/ManageLinks';
+import AdminPanel from './pages/Admin/AdminPanel';
 
 export default function App() {
   return (
     <AdminProvider>
-      <div className="bg-white min-h-screen flex flex-col relative bg-subtle-pattern">
-        <div className="blob-bg w-96 h-96 -top-48 -left-48"></div>
-        <div className="blob-bg w-[500px] h-[500px] bottom-0 -right-64 opacity-50"></div>
+      <div className="bg-[#F8F6F4] min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow relative z-10">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/salla/themes" element={<SallaThemes />} />
             <Route path="/zid/themes" element={<ZidThemes />} />
+            <Route path="/theme/:themeId" element={<ThemeDetails />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/admin/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-            <Route path="/admin/themes" element={<ProtectedRoute><ManageThemes /></ProtectedRoute>} />
-            <Route path="/admin/categories" element={<ProtectedRoute><ManageCategories /></ProtectedRoute>} />
-            <Route path="/admin/links" element={<ProtectedRoute><ManageLinks /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><AdminPanel /></ProtectedRoute>} />
           </Routes>
         </main>
         <Footer />

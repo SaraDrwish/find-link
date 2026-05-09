@@ -1,4 +1,3 @@
-// SallaThemes.jsx
 import { useAdmin } from '../contexts/AdminContext';
 import ThemeCard from '../components/ThemeCard';
 import { motion } from 'framer-motion';
@@ -12,7 +11,7 @@ export default function SallaThemes() {
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#150543] mb-4">ثيمات منصة سلة</h1>
-          <p className="text-gray-500">اختر ثيماً لترى جميع الروابط المرتبطة به</p>
+          <p className="text-gray-500">اختر ثيماً لترى جميع روابطه</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {sallaThemes.map(theme => <ThemeCard key={theme.id} theme={theme} />)}

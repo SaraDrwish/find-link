@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+    <nav className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-100 shadow-sm w-full">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img src="https://craffo.com/wp-content/uploads/2025/10/CR-EN-WHITE.png" alt="Craffo" className="h-8 w-auto" onError={(e) => e.target.src = 'https://placehold.co/120x40/150543/white?text=CRAFFO'} />
@@ -29,11 +29,11 @@ export default function Navbar() {
           </Link>
           {isAdmin ? (
             <>
-              <Link to="/admin/dashboard" className="bg-[#a46df6]/10 text-[#150543] px-4 py-1.5 rounded-full hover:bg-[#a46df6] hover:text-white transition">لوحة التحكم</Link>
+              <Link to="/admin" className="bg-[#a46df6]/10 text-[#150543] px-4 py-1.5 rounded-full hover:bg-[#a46df6] hover:text-white transition">لوحة التحكم</Link>
               <button onClick={handleLogout} className="text-red-500 text-sm px-2 py-1">تسجيل خروج</button>
             </>
           ) : (
-            <Link to="/login" className="bg-gray-100 text-[#150543] px-4 py-1.5 rounded-full hover:bg-[#a46df6]/20 transition">تسجيل دخول (أدمن)</Link>
+            <Link to="/login" className="bg-gray-100 text-[#150543] px-4 py-1.5 rounded-full hover:bg-[#a46df6]/20 transition">تسجيل دخول</Link>
           )}
         </div>
       </div>
