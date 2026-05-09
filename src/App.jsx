@@ -13,7 +13,7 @@ import AdminPanel from './pages/Admin/AdminPanel';
 export default function App() {
   return (
     <AdminProvider>
-      <div className="bg-[#F8F6F4] min-h-screen flex flex-col">
+      <div className="bg-white min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
           <Routes>
